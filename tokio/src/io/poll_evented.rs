@@ -295,10 +295,7 @@ where
     ///
     /// # Panics
     ///
-    /// This function panics if:
-    ///
-    /// * `ready` contains bits besides `writable` and `hup`.
-    /// * called from outside of a task context.
+    /// This function will panic if called from outside of a task context.
     pub fn poll_write_ready(&self, cx: &mut Context<'_>) -> Poll<io::Result<mio::Ready>> {
         poll_ready!(
             self,
